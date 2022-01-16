@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
+  const [openPopup, setOpenPopup] = useState(false);
+
   return (
-    <div>
-      <h1>Hello World 🚀</h1>
-    </div>
+    <>
+      <Navbar openPopup={openPopup} setOpenPopup={setOpenPopup} />
+    </>
   );
 };
 
