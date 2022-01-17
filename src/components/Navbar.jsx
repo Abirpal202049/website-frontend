@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 
-import ReactSVG from "../SVG/logo512.png";
+import ReactSVG from "../SVG/Logo.svg";
 
 import PopUp from "./PopUp";
 import Login from "./Login";
@@ -27,7 +27,7 @@ const Navbar = (props) => {
         to="/"
         className="h-full flex justify-center items-center cursor-pointer z-50"
       >
-        <img className="h-full mr-4 py-1" src={ReactSVG} alt="" />
+        <img className="h-full py-1" src={ReactSVG} alt="" />
         <div className="flex flex-col justify-center">
           <h1 className="text-2xl font-semibold">AEC Coding Club</h1>
           <p className="text-sm te relative -top-1">Always Top of the Heap</p>
