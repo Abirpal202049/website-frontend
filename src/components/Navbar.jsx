@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import ReactSVG from "../SVG/Logo.svg";
 
 import { Global } from "./GlobalProvider";
+import Login from "./Login";
+import Logout from "./Logout";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
-
-  const { openLogin } = useContext(Global);
+  const { openLoginPopup, openLogoutPopup, adminToken } = useContext(Global);
 
   useEffect(() => {
     window.onresize = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
   });
 
   return (
-    <div className="bg-shades-4 text-shades-0 h-20 flex justify-between items-center px-4 lg:px-12 py-2 transition ease-in fixed inset-0">
+    <nav className="bg-shades-4 text-shades-0 h-20 flex justify-between items-center px-4 lg:px-12 py-2 transition ease-in fixed inset-0 select-none">
       <Link to="/" className="h-full flex justify-center items-center z-10">
         <img className="h-full py-1" src={ReactSVG} alt="" />
         <div className="flex flex-col justify-center">
@@ -76,12 +77,15 @@ const Navbar = () => {
 
         <button
           className="px-4 py-2 mx-2 rounded-3xl bg-shades-1 hover:bg-shades-0 text-shades-4 text-lg font-semibold ease-in hover:scale-x-105 active:scale-95"
-          onClick={openLogin}
+          onClick={adminToken ? openLogoutPopup : openLoginPopup}
         >
-          Login
+          {adminToken ? "Logout" : "Login"}
         </button>
       </div>
-    </div>
+
+      <Login />
+      <Logout />
+    </nav>
   );
 };
 
